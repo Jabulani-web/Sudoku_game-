@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Play Sudoku with multiple difficulty levels, hints, notes, and a timer.">
+  <title>Sudoku — Train Your Mind And Soul</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Sudoku home">
+      <span class="brand-icon">9</span>
+      <span>Sudo<span class="brand-accent">ku</span></span>
+    </a>
+    <span class="topbar-label">TRAIN YOUR MIND AND SOUL</span>
+  </header>
+
+  <main class="app">
+    <section class="intro">
+      <p class="eyebrow">YOUR DAILY BRAIN WORKOUT</p>
+      <h1>Find your <span>focus.</span></h1>
+      <p class="subtitle">A little logic goes a long way. Take your time and enjoy the puzzle.</p>
+    </section>
+
+    <section class="game-layout" aria-label="Sudoku game">
+      <div class="board-panel">
+        <div class="game-toolbar">
+          <div>
+            <label for="difficulty">DIFFICULTY</label>
+            <select id="difficulty">
+              <option value="easy">Easy</option>
+              <option value="medium" selected>Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <button id="new-game" class="button button-primary">New game</button>
+        </div>
+
+        <div class="stats">
+          <div class="stat-card">
+            <span class="stat-label">TIME</span>
+            <strong id="timer">00:00</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">MISTAKES</span>
+            <strong id="mistakes">0 <span class="stat-muted">/ 3</span></strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">HINTS LEFT</span>
+            <strong id="hints-left">3</strong>
+          </div>
+        </div>
+
+        <div id="board" class="sudoku-board" role="grid" aria-label="Sudoku puzzle"></div>
+
+        <div class="number-pad" aria-label="Choose a number">
+          <button class="number-button" data-number="1">1</button>
+          <button class="number-button" data-number="2">2</button>
+          <button class="number-button" data-number="3">3</button>
+          <button class="number-button" data-number="4">4</button>
+          <button class="number-button" data-number="5">5</button>
+          <button class="number-button" data-number="6">6</button>
+          <button class="number-button" data-number="7">7</button>
+          <button class="number-button" data-number="8">8</button>
+          <button class="number-button" data-number="9">9</button>
+        </div>
+
+        <div class="action-buttons">
+          <button id="notes-button" class="button button-secondary" aria-pressed="false">
+            <span>✎</span> Notes: Off
+          </button>
+          <button id="erase-button" class="button button-secondary">
+            <span>⌫</span> Erase
+          </button>
+          <button id="hint-button" class="button button-secondary">
+            <span>✦</span> Hint
+          </button>
+        </div>
+
+        <div class="bottom-actions">
+          <button id="check-button" class="text-button">Check puzzle</button>
+          <button id="reset-button" class="text-button">Reset board</button>
+        </div>
+
+        <p id="message" class="message" role="status" aria-live="polite">
+          Select an empty square to begin.
+        </p>
+      </div>
+
+      <aside class="side-panel">
+        <div class="side-card">
+          <div class="side-icon">◎</div>
+          <h2>How to play</h2>
+          <p>Fill every row, column, and 3×3 box with numbers from 1 to 9.</p>
+          <ul class="rules">
+            <li><span class="rule-dot blue"></span>No repeated numbers in a row.</li>
+            <li><span class="rule-dot purple"></span>No repeated numbers in a column.</li>
+            <li><span class="rule-dot orange"></span>No repeated numbers in a 3×3 box.</li>
+          </ul>
+        </div>
+
+        <div class="side-card best-card">
+          <div class="best-heading">
+            <h2>Personal best</h2>
+            <span>🏆</span>
+          </div>
+          <div class="best-row"><span>Easy</span><strong id="best-easy">--:--</strong></div>
+          <div class="best-row"><span>Medium</span><strong id="best-medium">--:--</strong></div>
+          <div class="best-row"><span>Hard</span><strong id="best-hard">--:--</strong></div>
+          <p class="best-note">Best times are saved in this browser.</p>
+        </div>
+
+        <div class="tip-card">
+          <span>💡</span>
+          <p><strong>Daily tip</strong><br>Start with a row, column, or box that already has many numbers filled in.</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <p>Made for curious minds. <span>One square at a time.</span></p>
+    </footer>
+  </main>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div id="modal-icon" class="modal-icon">🎉</div>
+      <h2 id="modal-title">Puzzle complete!</h2>
+      <p id="modal-text">Great work. You solved the Sudoku puzzle.</p>
+      <button id="modal-new-game" class="button button-primary">Play again</button>
+      <button id="modal-close" class="text-button">Back to board</button>
+    </div>
+  </div>
+</body>
+</html>
