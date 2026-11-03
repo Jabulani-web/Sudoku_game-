@@ -35,5 +35,10 @@ Or use the package scripts: `npm run dev`, `npm run build`.
 ## Hosting
 
 The game is plain HTML, CSS and JavaScript, so `dist/` can be served by any static
-host. In Freebuff, press **Deploy** once to choose a domain; after that,
-`freebuff-deploy start` redeploys the latest commit.
+host.
+
+- **GitHub Pages** — enabling Pages with the *GitHub Actions* source publishes
+  this repo at <https://jabulani-web.github.io/Sudoku_game-/> on every push via
+  `.github/workflows/pages.yml`.
+- **Freebuff** — press **Deploy** once to choose a domain; after that,
+  `freebuff-deploy start` redeploys the latest commit.
