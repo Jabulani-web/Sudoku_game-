@@ -1,0 +1,11 @@
+{
+  "name": "sudoku-game",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Sudoku with a daily challenge, unlimited undo, auto-notes, hints and level progression.",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node server.js --build"
+  }
+}
